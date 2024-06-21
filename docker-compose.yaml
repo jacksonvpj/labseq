@@ -1,0 +1,21 @@
+version: "3.3"
+
+services:
+  labseq-backend:
+    build:
+      dockerfile: labseq-backend/Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - altice-network
+  labseq-frontend:
+    build:
+      dockerfile: labseq-frontend/Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - altice-network
+
+networks:
+  altice-network:
+    driver: bridge
